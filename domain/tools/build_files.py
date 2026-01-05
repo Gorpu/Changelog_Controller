@@ -60,10 +60,6 @@ changelog-controller.exe"""
             conteudo += "\n" + BLOCO_CHANGELOG + "\n"
             alterado = True
 
-
-
-
-
         if alterado:
             with open(README_PATH, "w", encoding="utf-8") as f:
                 f.write(conteudo)
@@ -87,27 +83,27 @@ changelog-controller.exe"""
             files_formatted = "\n".join(f"- {f}" for f in files) or "- Nenhum arquivo"
 
             content = f"""\
-    ---
+---
 
-    ## 🔄 Changelog
+## 🔄 Changelog
 
-    👤 **User:** {user}  
-    🌿 **Branch:** {branch}  
-    📅 **Date:** {date}  
-    🏷️ **Type:** {feature_type}
+👤 **User:** {user}  
+🌿 **Branch:** {branch}  
+📅 **Date:** {date}  
+🏷️ **Type:** {feature_type}
 
-    ---
+---
 
-    ### 📝 Details
-    - {message}
+### 📝 Details
+- {message}
 
-    ---
+---
 
-    ### 📂 Files
-    {files_formatted}
+### 📂 Files
+{files_formatted}
 
-    ---
-    """
+---
+"""
             changelog_path = os.path.join(cls.CHANGELOG_DIR, cls.CHANGELOG_NAME)
             with open(changelog_path, "a", encoding="utf-8") as file:
                 file.write(content)
